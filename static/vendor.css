@@ -202,6 +202,23 @@ button:-moz-focusring {
   box-shadow: 0 0 0 1px #767676;
 }
 
+.header, .header__js-logo {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 0;
+}
+
+.header__js-logo {
+  height: 59px;
+  width: 59px;
+  background: #f7df1e;
+  box-sizing: border-box;
+  padding: 4px;
+  justify-content: flex-end;
+  line-height: 28px;
+  margin: 8px 8px 0 8px;
+}
+
 .sort {
   background: #fff;
   padding: 10px;
@@ -243,6 +260,10 @@ button:-moz-focusring {
 }
 
 @media only screen and (min-width: 544px) {
+  .header__js-logo {
+    margin: 0 8px 0 0;
+  }
+
   .sort {
     margin-right: 8px;
   }
