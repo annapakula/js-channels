@@ -19,21 +19,21 @@ getAllChannels()
   .then((channels) => {
     channels.forEach((channel) => {
       content.innerHTML += `
-      <div>
-        <img src="${channel.thumbnails.default.url}" alt="${channel.title} logo" />
-        <h2>${channel.title}</h2>
-        <div>
-          <div>
-            <p>SUBSCRIBERS:</p>
-            <p><b>${numberToImperialNotation(channel.statistics.subscriberCount)}</b></p>
+      <div class="card">
+        <img class="card__image" src="${channel.thumbnails.medium.url}" width="${channel.thumbnails.medium.width}" alt="${channel.title} logo" />
+        <h2 class="card__header">${channel.title}</h2>
+        <div class="wrapper__statistics">
+          <div class="card__statistic">
+            <p class="card__text">SUBSCRIBERS:</p>
+            <p class="card__text"><b>${numberToImperialNotation(channel.statistics.subscriberCount)}</b></p>
           </div>
-          <div>
-            <p>VIDEOS:</p>
-            <p><b>${numberToImperialNotation(channel.statistics.videoCount)}</b></p>
+          <div class="card__statistic">
+            <p class="card__text">VIDEOS:</p>
+            <p class="card__text"><b>${numberToImperialNotation(channel.statistics.videoCount)}</b></p>
           </div>
-          <div>
-            <p>VIEWS:</p>
-            <p><b>${numberToImperialNotation(channel.statistics.viewCount)}</b></p>
+          <div class="card__statistic">
+            <p class="card__text">VIEWS:</p>
+            <p class="card__text"><b>${numberToImperialNotation(channel.statistics.viewCount)}</b></p>
           </div>
         </div>
       </div>
