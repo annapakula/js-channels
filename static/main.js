@@ -1,7 +1,7 @@
 "use strict"
 import getAllChannels from "./api.js";
 
-const content = document.getElementsByClassName("js-content")[0];
+const content = document.querySelector(".js-content");
 
 function numberToImperialNotation(number) {
   if(number.length > 3) {
@@ -40,4 +40,7 @@ getAllChannels()
     `;
     });
   })
-  .catch((error) => console.error(error));
+  .catch((error) => {
+    content.innerHTML = `<p>${error.message}</p>`;
+    console.error(error);
+  });
