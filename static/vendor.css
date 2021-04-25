@@ -49,16 +49,13 @@ button:-moz-focusring {
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
   appearance: none;
-  background: transparent;
   border: 0;
   border-radius: 2px;
   box-sizing: border-box;
-  color: #222;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
   height: 40px;
-  line-height: 21px;
   line-height: 40px;
   margin: 0;
   overflow: hidden;
@@ -131,10 +128,8 @@ button:-moz-focusring {
   cursor: pointer;
   display: inline-block;
   font-size: 16px;
-  line-height: 21px;
   line-height: 20px;
-  padding: 4px 0;
-  padding-left: 28px;
+  padding: 4px 0 4px 28px;
   position: relative;
   text-size-adjust: 100%;
 }
@@ -175,18 +170,18 @@ button:-moz-focusring {
   content: "";
   display: inline-block;
   position: absolute;
-  transform-origin: top left
+  transform-origin: top left;
+  width: 8px;
+  height: 8px;
+  left: 6px;
+  top: 10px;
 }
 
 .choice--radio + .choice__label:after {
   border-radius: 50%;
-  height: 8px;
-  left: 6px;
-  top: 10px;
-  width: 8px
 }
 
-.choice--radio:checked + .choice__label:after {
+.choice:checked + .choice__label:after {
   background: #1bb826;
 }
 
@@ -213,6 +208,7 @@ button:-moz-focusring {
   border-radius: 2px;
   box-sizing: border-box;
   color: #222;
+  width: 100%;
   height: 40px;
   line-height: 21px;
   margin: 0;
@@ -220,7 +216,6 @@ button:-moz-focusring {
   outline: none;
   padding: 8px;
   text-size-adjust: 100%;
-  width: 100%;
 }
 .filter {
   background: #fff;

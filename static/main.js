@@ -8,10 +8,12 @@ const titleInput = document.querySelector("#sort-title");
 const subscribersInput = document.querySelector("#sort-subscribers");
 const videosInput = document.querySelector("#sort-videos");
 const viewsInput = document.querySelector("#sort-views");
+const sortAscending = document.querySelector("#sort-ascending");
 const filterChannels = document.querySelector("#filter-channels");
 const clearSorting = document.querySelector("#clear-sorting");
 
 let sortBy = "";
+let sortAsc = true;
 let filterValue = "";
 const channels = [];
 
@@ -19,7 +21,7 @@ function showChannels() {
   content.innerHTML = "";
 
   let copyChannels = [...channels];
-  
+
   if(filterValue) {
     copyChannels = copyChannels.filter(channel => channel.title.toLowerCase().includes(filterValue.toLowerCase()));
   }
@@ -27,20 +29,28 @@ function showChannels() {
   if(sortBy) {
     switch (sortBy) {
       case "title":
-        copyChannels = copyChannels.sort((a,b) => a.title.localeCompare(b.title)); 
+        copyChannels.sort((a,b) => a.title.localeCompare(b.title)); 
         break;
       case "subscribers":
-        copyChannels = copyChannels.sort((a,b) => digitsFromString(a.statistics.subscriberCount) - digitsFromString(b.statistics.subscriberCount)); 
+        copyChannels.sort((a,b) => digitsFromString(a.statistics.subscriberCount) - digitsFromString(b.statistics.subscriberCount)); 
         break;
       case "videos":
-        copyChannels = copyChannels.sort((a,b) => digitsFromString(a.statistics.videoCount) - digitsFromString(b.statistics.videoCount)); 
+        copyChannels.sort((a,b) => digitsFromString(a.statistics.videoCount) - digitsFromString(b.statistics.videoCount)); 
         break;
       case "views":
-        copyChannels = copyChannels.sort((a,b) => digitsFromString(a.statistics.viewCount) - digitsFromString(b.statistics.viewCount)); 
+        copyChannels.sort((a,b) => digitsFromString(a.statistics.viewCount) - digitsFromString(b.statistics.viewCount)); 
         break;
     }
   }
 
+  if(!sortAsc) {
+    copyChannels.reverse();
+  }
+
+  if(copyChannels.length === 0) {
+    content.innerHTML = "<p>No search results</p>";
+    return;
+  }
   copyChannels.forEach((channel) => {
     content.innerHTML += `
       <div class="card">
@@ -95,6 +105,10 @@ viewsInput.addEventListener("click", () => {
   sortBy = "views";
   showChannels();
 });
+sortAscending.addEventListener("click", () => {
+  sortAsc = !sortAsc;
+  showChannels();
+})
 filterChannels.addEventListener("input", e => {
   filterValue = e.target.value;
   showChannels();
@@ -104,7 +118,10 @@ clearSorting.addEventListener("click", () => {
   subscribersInput.checked = false;
   videosInput.checked = false;
   viewsInput.checked = false;
+  sortAscending.checked = true;
   filterChannels.value = "";
+  sortAsc = true;
+  sortBy = "";
   filterValue = "";
   showChannels();
 });
