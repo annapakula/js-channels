@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/start.js",
+    "start": "nodemon server/start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
@@ -12,6 +12,10 @@
   "dependencies": {
     "get-port": "4.0.0",
     "koa": "2.5.2",
+    "koa-router": "^10.0.0",
     "koa-static": "5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
