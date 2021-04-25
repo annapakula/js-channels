@@ -53,24 +53,26 @@ function showChannels() {
   }
   copyChannels.forEach((channel) => {
     content.innerHTML += `
-      <div class="card">
-        <img class="card__image" src="${channel.thumbnails.medium.url}" width="${channel.thumbnails.medium.width}" alt="${channel.title} logo" />
-        <h2 class="card__header">${channel.title}</h2>
-        <div class="wrapper__statistics">
-          <div class="card__statistic">
-            <p class="card__text">SUBSCRIBERS:</p>
-            <p class="card__text"><b>${numberToImperialNotation(channel.statistics.subscriberCount)}</b></p>
-          </div>
-          <div class="card__statistic">
-            <p class="card__text">VIDEOS:</p>
-            <p class="card__text"><b>${numberToImperialNotation(channel.statistics.videoCount)}</b></p>
-          </div>
-          <div class="card__statistic">
-            <p class="card__text">VIEWS:</p>
-            <p class="card__text"><b>${numberToImperialNotation(channel.statistics.viewCount)}</b></p>
+      <a class="card__link" href="${channel.customUrl}/?utm_timestamp=${Date.now()}" target="_blank">
+        <div class="card">
+          <img class="card__image" src="${channel.thumbnails.medium.url}" width="${channel.thumbnails.medium.width}" alt="${channel.title} logo" />
+          <h2 class="card__header">${channel.title}</h2>
+          <div class="wrapper__statistics">
+            <div class="card__statistic">
+              <p class="card__text">SUBSCRIBERS:</p>
+              <p class="card__text"><b>${numberToImperialNotation(channel.statistics.subscriberCount)}</b></p>
+            </div>
+            <div class="card__statistic">
+              <p class="card__text">VIDEOS:</p>
+              <p class="card__text"><b>${numberToImperialNotation(channel.statistics.videoCount)}</b></p>
+            </div>
+            <div class="card__statistic">
+              <p class="card__text">VIEWS:</p>
+              <p class="card__text"><b>${numberToImperialNotation(channel.statistics.viewCount)}</b></p>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     `;
   });
 }

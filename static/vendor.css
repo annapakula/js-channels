@@ -97,6 +97,11 @@ button:-moz-focusring {
   border-radius: 50%;
 }
 
+.card__link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .card__statistic {
   display: flex;
   flex-direction: column;
