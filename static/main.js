@@ -12,6 +12,7 @@ const sortAscending = document.querySelector("#sort-ascending");
 const filterChannels = document.querySelector("#filter-channels");
 const searchList = document.querySelector("#search-list");
 const clearSorting = document.querySelector("#clear-sorting");
+const invertColorsButton = document.querySelector("#invert-colors");
 
 let sortBy = "";
 let sortAsc = true;
@@ -146,3 +147,8 @@ clearSorting.addEventListener("click", () => {
   filterValue = "";
   showChannels();
 });
+invertColorsButton.addEventListener("click", () => {
+  document.documentElement.style.mixBlendMode === "difference"
+    ? document.documentElement.style.mixBlendMode = ""
+    : document.documentElement.style.mixBlendMode = "difference";
+})
