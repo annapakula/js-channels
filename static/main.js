@@ -10,6 +10,7 @@ const videosInput = document.querySelector("#sort-videos");
 const viewsInput = document.querySelector("#sort-views");
 const sortAscending = document.querySelector("#sort-ascending");
 const filterChannels = document.querySelector("#filter-channels");
+const searchList = document.querySelector("#search-list");
 const clearSorting = document.querySelector("#clear-sorting");
 
 let sortBy = "";
@@ -23,7 +24,18 @@ function showChannels() {
   let copyChannels = [...channels];
 
   if(filterValue) {
-    copyChannels = copyChannels.filter(channel => channel.title.toLowerCase().includes(filterValue.toLowerCase()));
+    copyChannels = copyChannels.filter(channel => 
+      channel.title
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0142-\u036f]/g, "")
+        .includes(
+          filterValue
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0142-\u036f]/g, "")
+        )
+    );
   }
 
   if(sortBy) {
@@ -51,7 +63,12 @@ function showChannels() {
     content.innerHTML = "<p>No search results</p>";
     return;
   }
+
+  const options = [];
+
   copyChannels.forEach((channel) => {
+    options.push(`<option value="${channel.title}">`)
+
     content.innerHTML += `
       <a class="card__link" href="${channel.customUrl}/?utm_timestamp=${Date.now()}" target="_blank">
         <div class="card">
@@ -75,6 +92,8 @@ function showChannels() {
       </a>
     `;
   });
+
+  searchList.innerHTML = options.reduce((a,b) => a + b);
 }
 
 function getChannels() {

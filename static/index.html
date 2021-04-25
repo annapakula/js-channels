@@ -7,13 +7,21 @@
     </head>
     <body class="wrapper">
         <header class="wrapper__header">
-            <h1 class="header"><span class="header__js-logo">JS</span> Channels</h1>
+            <h1 class="header">
+                <span class="header__js-logo">JS</span> Channels
+            </h1>
         </header>
         <main class="wrapper__main js-content">
         </main>
         <div class="wrapper__filter">
             <div class="filter">
-                <input class="filter__input" type="text" placeholder="filter channels..." id="filter-channels">
+                <input
+                    class="filter__input"
+                    type="text"
+                    placeholder="filter channels..." 
+                    id="filter-channels"
+                    list="search-list">
+                <datalist id="search-list"></datalist>
             </div>
         </div>
         <aside class="wrapper__aside">
@@ -21,23 +29,44 @@
                 <h3 class="sort__header">Sort channels by:</h3>
                 <ul class="sort__options">
                     <li>
-                        <input class="choice choice--radio" name="sort" type="radio" id="sort-title">
+                        <input
+                            class="choice choice--radio"
+                            name="sort"
+                            type="radio"
+                            id="sort-title">
                         <label class="choice__label" for="sort-title">title</label>
                     </li>
                     <li>
-                        <input class="choice choice--radio" name="sort" type="radio" id="sort-subscribers">
+                        <input
+                            class="choice choice--radio"
+                            name="sort"
+                            type="radio"
+                            id="sort-subscribers">
                         <label class="choice__label" for="sort-subscribers">subscribers</label>
                     </li>
                     <li>
-                        <input class="choice choice--radio" name="sort" type="radio" id="sort-videos">
+                        <input
+                            class="choice choice--radio"
+                            name="sort"
+                            type="radio"
+                            id="sort-videos">
                         <label class="choice__label" for="sort-videos">videos</label>
                     </li>
                     <li>
-                        <input class="choice choice--radio" name="sort" type="radio" id="sort-views">
+                        <input
+                            class="choice choice--radio"
+                            name="sort"
+                            type="radio"
+                            id="sort-views">
                         <label class="choice__label" for="sort-views">views</label>
                     </li>
                     <li>
-                        <input class="choice choice--checkbox" name="sort" type="checkbox" id="sort-ascending" checked>
+                        <input
+                            class="choice choice--checkbox"
+                            name="sort"
+                            type="checkbox"
+                            id="sort-ascending"
+                            checked>
                         <label class="choice__label" for="sort-ascending">ascending</label>
                     </li>
                 </ul>
