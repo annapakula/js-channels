@@ -1,7 +1,7 @@
-"use strict"
+"use strict";
 
-import getAllChannels from "./scripts/api.js";
-import { digitsFromString, numberToImperialNotation } from "./scripts/utils.js";
+import getAllChannels from "./api.js";
+import { digitsFromString, numberToImperialNotation } from "./utils.js";
 
 localStorage.setItem(
   "visit-count",
@@ -28,11 +28,14 @@ let sortAsc = true;
 let filterValue = "";
 const channels = [];
 
+// Function to display JS YouTube channels
 function showChannels() {
+  // Reset content
   content.innerHTML = "";
 
   let copyChannels = [...channels];
 
+  // Filter channels by typed text
   if(filterValue) {
     copyChannels = copyChannels.filter(channel => 
       channel.title
@@ -46,6 +49,11 @@ function showChannels() {
             .replace(/[\u0142-\u036f]/g, "")
         )
     );
+  }
+
+  if(copyChannels.length === 0) {
+    content.innerHTML = "<p>No search results</p>";
+    return;
   }
 
   if(sortBy) {
@@ -65,19 +73,15 @@ function showChannels() {
     }
   }
 
+  // Toggle sorting in ascending/descending order
   if(!sortAsc) {
     copyChannels.reverse();
-  }
-
-  if(copyChannels.length === 0) {
-    content.innerHTML = "<p>No search results</p>";
-    return;
   }
 
   const options = [];
 
   copyChannels.forEach((channel) => {
-    options.push(`<option value="${channel.title}">`)
+    options.push(`<option value="${channel.title}">`);
 
     content.innerHTML += `
       <a class="card__link" href="${channel.customUrl}/?utm_timestamp=${Date.now()}" target="_blank">

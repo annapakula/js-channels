@@ -1,5 +1,5 @@
 async function getAllChannels() {
-  const response = await fetch('channels');
+  const response = await fetch('/channels');
   if(!response.ok) {
     throw new Error("Data loading has failed!");
   }
