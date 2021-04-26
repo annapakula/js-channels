@@ -1,14 +1,9 @@
 const request = require("supertest");
-const server = require("../server/start");
-const data = require('../static/channels.json');
-
-beforeAll(async () => {
-  console.log("Jest starting");
-});
+const server = require("../../server/start");
+const data = require('../../static/channels.json');
 
 afterAll(() => {
   server.close();
-  console.log("server closed");
 });
 
 describe("route tests", () => {
