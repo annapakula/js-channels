@@ -3,8 +3,14 @@
 import getAllChannels from "./scripts/api.js";
 import { digitsFromString, numberToImperialNotation } from "./scripts/utils.js";
 
-localStorage.setItem("visit-count", parseInt(localStorage.getItem("visit-count")) + 1 || 1);
-localStorage.setItem("last-visit-date", new Intl.DateTimeFormat("pl", {day: "numeric", month: "short", year: "numeric"}).format(new Date()));
+localStorage.setItem(
+  "visit-count",
+  parseInt(localStorage.getItem("visit-count")) + 1 || 1
+);
+localStorage.setItem(
+    "last-visit-date",
+    new Intl.DateTimeFormat("pl", {day: "numeric", month: "short", year: "numeric"}).format(new Date())
+);
 
 const content = document.querySelector(".js-content");
 const titleInput = document.querySelector("#sort-title");

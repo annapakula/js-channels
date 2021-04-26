@@ -84,7 +84,6 @@ button:-moz-focusring {
 }
 
 .card {
-  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -99,6 +98,7 @@ button:-moz-focusring {
 
 .card__link {
   text-decoration: none;
+  background-color: #fff;
   color: inherit;
 }
 
