@@ -1,5 +1,6 @@
 # JavaScript YouTube Channels
 
+![JS Channels screenshot](screenshots/1680px.png)
 ## Features:
 * sort channels by title, subscribers, videos and views
 * sort channels ascending / descending
